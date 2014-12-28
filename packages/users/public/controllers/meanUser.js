@@ -21,17 +21,17 @@ angular.module('mean.users')
       $scope.global.registerForm = false;
       $scope.input = {
         type: 'password',
-        placeholder: 'Password',
-        confirmPlaceholder: 'Repeat Password',
+        placeholder: 'Passord',
+        confirmPlaceholder: 'Repeter passord',
         iconClass: '',
-        tooltipText: 'Show password'
+        tooltipText: 'Vis passord'
       };
 
       $scope.togglePasswordVisible = function() {
         $scope.input.type = $scope.input.type === 'text' ? 'password' : 'text';
-        $scope.input.placeholder = $scope.input.placeholder === 'Password' ? 'Visible Password' : 'Password';
+        $scope.input.placeholder = $scope.input.placeholder === 'Passord' ? 'Synlig passord' : 'Passord';
         $scope.input.iconClass = $scope.input.iconClass === 'icon_hide_password' ? '' : 'icon_hide_password';
-        $scope.input.tooltipText = $scope.input.tooltipText === 'Show password' ? 'Hide password' : 'Show password';
+        $scope.input.tooltipText = $scope.input.tooltipText === 'Vis passord' ? 'Skjul passord' : 'Vis passord';
       };
 
       // Register the login() function
@@ -57,7 +57,7 @@ angular.module('mean.users')
             }
           })
           .error(function() {
-            $scope.loginerror = 'Authentication failed.';
+            $scope.loginerror = 'Autentisering feilet.';
           });
       };
     }
@@ -69,24 +69,24 @@ angular.module('mean.users')
       $scope.global.registerForm = true;
       $scope.input = {
         type: 'password',
-        placeholder: 'Password',
-        placeholderConfirmPass: 'Repeat Password',
+        placeholder: 'Passord',
+        placeholderConfirmPass: 'Repeter passord',
         iconClassConfirmPass: '',
-        tooltipText: 'Show password',
-        tooltipTextConfirmPass: 'Show password'
+        tooltipText: 'Vis passord',
+        tooltipTextConfirmPass: 'Vis passord'
       };
 
       $scope.togglePasswordVisible = function() {
         $scope.input.type = $scope.input.type === 'text' ? 'password' : 'text';
-        $scope.input.placeholder = $scope.input.placeholder === 'Password' ? 'Visible Password' : 'Password';
+        $scope.input.placeholder = $scope.input.placeholder === 'Passord' ? 'Synlig passord' : 'Passord';
         $scope.input.iconClass = $scope.input.iconClass === 'icon_hide_password' ? '' : 'icon_hide_password';
-        $scope.input.tooltipText = $scope.input.tooltipText === 'Show password' ? 'Hide password' : 'Show password';
+        $scope.input.tooltipText = $scope.input.tooltipText === 'Vis passord' ? 'Skjul passord' : 'Vis passord';
       };
       $scope.togglePasswordConfirmVisible = function() {
         $scope.input.type = $scope.input.type === 'text' ? 'password' : 'text';
-        $scope.input.placeholderConfirmPass = $scope.input.placeholderConfirmPass === 'Repeat Password' ? 'Visible Password' : 'Repeat Password';
+        $scope.input.placeholderConfirmPass = $scope.input.placeholderConfirmPass === 'Repeter passord' ? 'Synlig passord' : 'Repeter passord';
         $scope.input.iconClassConfirmPass = $scope.input.iconClassConfirmPass === 'icon_hide_password' ? '' : 'icon_hide_password';
-        $scope.input.tooltipTextConfirmPass = $scope.input.tooltipTextConfirmPass === 'Show password' ? 'Hide password' : 'Show password';
+        $scope.input.tooltipTextConfirmPass = $scope.input.tooltipTextConfirmPass === 'Vis passord' ? 'Skjul passord' : 'Vis passord';
       };
 
       $scope.register = function() {
@@ -110,9 +110,9 @@ angular.module('mean.users')
           })
           .error(function(error) {
             // Error: authentication failed
-            if (error === 'Username already taken') {
+            if (error === 'Brukernavn er opptatt') {
               $scope.usernameError = error;
-            } else if (error === 'Email already taken') {
+            } else if (error === 'E-post er opptatt') {
               $scope.emailError = error;
             } else $scope.registerError = error;
           });
@@ -162,8 +162,8 @@ angular.module('mean.users')
             }
           })
           .error(function(error) {
-            if (error.msg === 'Token invalid or expired')
-              $scope.resetpassworderror = 'Could not update password as token is invalid or may have expired';
+            if (error.msg === 'Tokenet er ugyldig eller utløpt')
+              $scope.resetpassworderror = 'Kunne ikke oppdatere passord fordi tokenet er ugyldig eller er utløpt';
             else
               $scope.validationError = error;
           });
