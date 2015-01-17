@@ -1,0 +1,36 @@
+<h1>Opprett lag</h1>
+<section data-ng-controller="TeamsController">
+    <form name="teamForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(teamForm.$valid)" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && teamForm.name.$invalid }">
+            <label mean-token="'create-name'" class="col-md-3 control-label sr-only">Lagets navn</label>
+            <div class="col-md-9">
+                <input name="name" type="text" class="form-control" data-ng-model="name" id="name" placeholder="Lagets navn" required>
+                <div ng-show="submitted && teamForm.name.$invalid" class="help-block">
+                    <p ng-show="teamForm.name.$error.required">Lagets navn er obligatorisk</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : submitted && teamForm.gender.$invalid }">
+            <label mean-token="'create-gender'" class="col-md-3 control-label">Kjønn</label>
+            <div class="col-md-9">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary active" id="f" data-ng-click="setGender('female')">Dame</button>
+                    <button type="button" class="btn btn-primary" id="m" data-ng-click="setGender('male')">Herre</button>
+                    <button type="button" class="btn btn-primary" id="mix" data-ng-click="setGender('mix')">Mix</button>
+                </div>
+                <!--<textarea name="gender" data-ng-model="gender" id="gender" cols="30" rows="10" placeholder="Kjønn" class="form-control" required></textarea>-->
+                <div ng-show="submitted && teamForm.gender.$invalid" class="help-block">
+                    <p ng-show="teamForm.gender.$error.required">Kjønn er obligatorisk</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <button mean-token="'create-submit'" type="submit" class="btn btn-info">Opprett lag</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+

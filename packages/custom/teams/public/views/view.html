@@ -1,0 +1,13 @@
+<section data-ng-controller="TeamsController" data-ng-init="findOne()">
+    <h1>{{ team.name }}</h1>
+    {{ teams.gender }}
+    <div class="players">
+        <ul>
+            <li data-ng-repeat="player in team.players">
+                {{ player.name }}
+            </li>
+        </ul>
+    </div>
+</section>
+
+

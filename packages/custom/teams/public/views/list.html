@@ -1,0 +1,25 @@
+<section data-ng-controller="TeamsController" data-ng-init="find()">
+    <a href="/#!/teams/create" class="btn btn-large btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign"></span></a>
+
+    <ul class="teams unstyled">
+        <li data-ng-repeat="team in teams">
+            <span>{{team.created | date:'medium'}}</span> /
+            <span>{{team.user.name}}</span>
+            <h2>
+                <a data-ng-href="#!/teams/{{team._id}}">{{team.name}}</a>
+        <span data-ng-if="hasAuthorization(team)">
+          <a class="btn" href="/#!/teams/{{team._id}}/edit">
+              <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(team);">
+              <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+            </h2>
+            <div>{{team.content}}</div>
+        </li>
+    </ul>
+
+    <h1 data-ng-hide="!teams || teams.length">Ingen lag. <br> Send forespørsel om å <a href="/#!/teams/connect">bli medlem av et lag</a>?</h1>
+
+</section>
